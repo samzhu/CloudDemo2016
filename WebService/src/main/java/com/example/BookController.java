@@ -25,7 +25,7 @@ public class BookController {
     @ApiOperation(value = "新增書本", notes = "使用 IP 來發送請求", consumes = "application/json", produces = "application/json")
     @ApiResponses(value = {@ApiResponse(code = 201, message = "存檔成功")})
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "v1/books", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "v1/book", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Book createByRestTemplate(
             @ApiParam(required = true, value = "書本內容") @RequestBody Book book) {
         return bookService.createByRestTemplate(book);
@@ -34,7 +34,7 @@ public class BookController {
     @ApiOperation(value = "新增書本", notes = "使用 @LoadBalanced RestTemplate 來發送請求", consumes = "application/json", produces = "application/json")
     @ApiResponses(value = {@ApiResponse(code = 201, message = "存檔成功")})
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "v2/books", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "v2/book", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Book createByLoadBalancedRestTemplate(
             @ApiParam(required = true, value = "書本內容") @RequestBody Book book) {
         return bookService.createByLoadBalancedRestTemplate(book);
@@ -43,7 +43,7 @@ public class BookController {
     @ApiOperation(value = "新增書本", notes = "使用 FeignClient 來發送請求", consumes = "application/json", produces = "application/json")
     @ApiResponses(value = {@ApiResponse(code = 201, message = "存檔成功")})
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "v3/books", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "v3/book", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Book createByFeignClient(
             @ApiParam(required = true, value = "書本內容") @RequestBody Book book) {
         return bookService.createByFeignClient(book);
