@@ -1,6 +1,6 @@
 ## 這是一個 Spring Cloud 練習範例
 
-### 請切換到 Tag Step1
+### 請切換到 Branch Step1
 
 請依照順序啟動下列服務
 
