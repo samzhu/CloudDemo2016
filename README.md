@@ -34,9 +34,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"author": "作者","name":
 
 開啟 [](http://localhost:5566/swagger-ui.html)
 裡面會有三種版本 API
-v1 是原本 RestTemplate 呼叫後端的方法
-v2 是透過注入一個 LoadBalanced RestTemplate 來完成 LoadBalanced
-v3 是使用 聲明式註解 FeignClient 來定義後端服務
+- v1 是原本 RestTemplate 呼叫後端的方法
+- v2 是透過注入一個 LoadBalanced RestTemplate 來完成 LoadBalanced
+- v3 是使用 聲明式註解 FeignClient 來定義後端服務
 
 5.透過 ZuulService 轉發請求
 
