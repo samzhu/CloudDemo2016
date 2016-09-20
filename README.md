@@ -22,7 +22,7 @@ curl -X GET "http://localhost:8888/web-service/master"
 
 2.檢視自動發現服務是否有服務註冊
 
-[Eureka Pages](http://localhost:8761/)
+[Eureka Page](http://localhost:8761/)
 
 3.試驗後端服務是否可用
 
@@ -32,7 +32,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"author": "作者","name":
 
 4.檢視 WebService API 介面
 
-開啟 [](http://localhost:5566/swagger-ui.html)
+開啟 [Swagger Page](http://localhost:5566/swagger-ui.html)
 裡面會有三種版本 API
 - v1 是原本 RestTemplate 呼叫後端的方法
 - v2 是透過注入一個 LoadBalanced RestTemplate 來完成 LoadBalanced
