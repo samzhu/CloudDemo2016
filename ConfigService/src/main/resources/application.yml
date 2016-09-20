@@ -1,0 +1,13 @@
+spring.application.name: config-service
+server.port: ${PORT:8888}
+spring.profiles.active: dev
+
+---
+
+spring.profiles: dev
+spring.cloud.config.server.git.uri: D:\CloudDemo2016\config-repo
+
+---
+
+spring.profiles: prod
+spring.cloud.config.server.git.uri: https://github.com/samzhu/CloudDemo2016-config-repo

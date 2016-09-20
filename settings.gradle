@@ -1,0 +1,7 @@
+rootProject.name = 'CloudDemo2016'
+include 'ConfigService'
+include 'DiscoveryService'
+include 'BookService'
+include 'WebService'
+include 'ZuulService'
+
