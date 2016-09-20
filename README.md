@@ -22,7 +22,7 @@ curl -X GET "http://localhost:8888/web-service/master"
 
 2.檢視自動發現服務是否有服務註冊
 
-[](http://localhost:8761/)
+[Eureka Pages](http://localhost:8761/)
 
 3.試驗後端服務是否可用
 
