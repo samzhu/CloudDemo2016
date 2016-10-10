@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'WebService'
+    baseName = 'ZipkinService'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
@@ -25,17 +25,12 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-config')
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
-    compile('org.springframework.boot:spring-boot-starter-hateoas')
-    compile('org.springframework.cloud:spring-cloud-starter-feign')
-    compile('org.springframework.cloud:spring-cloud-starter-hystrix')
-    compile('org.springframework.cloud:spring-cloud-starter-zipkin')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.projectlombok:lombok')
-    compile("io.springfox:springfox-swagger-ui:2.5.0")
-    compile("io.springfox:springfox-swagger2:2.5.0")
+    compile('io.zipkin.java:zipkin-server')
+    runtime('io.zipkin.java:zipkin-autoconfigure-ui')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

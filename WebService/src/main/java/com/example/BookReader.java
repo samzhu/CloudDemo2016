@@ -21,3 +21,5 @@ public interface BookReader {
     @RequestMapping(method = RequestMethod.GET, value = "/book/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     Resource<Book> get(@PathVariable("id") Integer id);
 }
+
+

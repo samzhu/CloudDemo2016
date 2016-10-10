@@ -65,7 +65,11 @@ public class BookController {
     @RequestMapping(value = "/v2/book/{bookid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Resource<Book> getByLoadBalancedRestTemplate(
             @ApiParam(required = true, name = "bookid", value = "書本ID") @PathVariable Integer bookid) {
-        return bookService.getByLoadBalancedRestTemplate(bookid);
+        Resource<Book> bookResource = bookService.getByLoadBalancedRestTemplate(bookid);
+        if (bookResource == null) {
+            throw new ServiceUnavailableException();
+        }
+        return bookResource;
     }
 
 
@@ -75,6 +79,10 @@ public class BookController {
     @RequestMapping(value = "/v3/book/{bookid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Resource<Book> getByFeignClient(
             @ApiParam(required = true, name = "bookid", value = "書本ID") @PathVariable Integer bookid) {
-        return bookService.getByFeignClient(bookid);
+        Resource<Book> bookResource = bookService.getByFeignClient(bookid);
+        if (bookResource == null) {
+            throw new ServiceUnavailableException();
+        }
+        return bookResource;
     }
 }

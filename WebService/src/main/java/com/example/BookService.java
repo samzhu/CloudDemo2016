@@ -1,5 +1,6 @@
 package com.example;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.Resource;
@@ -77,6 +78,7 @@ public class BookService {
      * @param bookid
      * @return Resource<Book>
      */
+    @HystrixCommand(fallbackMethod = "fallback")
     public Resource<Book> getByLoadBalancedRestTemplate(Integer bookid) {
         ParameterizedTypeReference<Resource<Book>> ptr =
                 new ParameterizedTypeReference<Resource<Book>>() {
@@ -103,7 +105,14 @@ public class BookService {
      * @param bookid
      * @return
      */
+    @HystrixCommand(fallbackMethod = "fallback")
     public Resource<Book> getByFeignClient(Integer bookid) {
         return bookReader.get(bookid);
     }
+
+    public Resource<Book> fallback(Integer bookid) {
+        return null;
+    }
+
+
 }
