@@ -4,4 +4,6 @@ include 'DiscoveryService'
 include 'BookService'
 include 'WebService'
 include 'ZuulService'
+include 'ZipkinService'
+include 'HystrixDashboard'
 

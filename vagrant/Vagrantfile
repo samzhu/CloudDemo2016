@@ -1,0 +1,32 @@
+VAGRANTFILE_API_VERSION = "2"
+ENV["VAGRANT_DEFAULT_PROVIDER"] = "docker"
+
+$vm_gui = false
+$vm_memory = 1024
+$vm_cpus = 2
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "mysql" do |v|
+    v.vm.synced_folder ".", "/vagrant", disabled: true
+    v.vm.provider "docker" do |d|
+      d.name = "mysql"
+      d.image = "mysql"
+      d.ports = ["3306:3306"]
+      d.env = {
+        MYSQL_ROOT_PASSWORD: "abcdEF123456"
+      }
+      d.vagrant_vagrantfile = "./Vagrantfile.proxy"
+    end
+  end
+
+  config.vm.define "rabbitmq" do |v|
+    v.vm.synced_folder ".", "/vagrant", disabled: true
+    v.vm.provider "docker" do |d|
+      d.name = "rabbitmq"
+      d.image = "rabbitmq:management"
+      d.ports = ["5672:5672","15672:15672"]
+      d.vagrant_vagrantfile = "./Vagrantfile.proxy"
+    end
+  end
+
+end
