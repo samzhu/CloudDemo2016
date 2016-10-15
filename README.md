@@ -1,5 +1,8 @@
 ## 這是一個 Spring Cloud 練習範例
 
+簡報位置
+https://goo.gl/hqaCLQ
+
 ### 必要
 
 需要一個 Mysql 如果沒有可利用 vagrant 來啟動一個 Mysql,並使用 create.sql 建立資料庫跟塞一些模擬資料
